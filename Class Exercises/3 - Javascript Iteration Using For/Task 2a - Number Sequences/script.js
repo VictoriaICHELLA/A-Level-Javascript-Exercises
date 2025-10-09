@@ -46,20 +46,22 @@ function generateSequence() {
     }
     
 
+        //ans =  MaxNum / steps
+       //counter = Sequence.length
 
     // steps: Use a for loop with custom step value
     if (seqtype === 'steps'){
-       ans =  MaxNum / steps
-       counter = Sequence.length
-        for (i=MaxNum; i>=ans; steps--){;
-        
-            for(counter = Sequence.length - 1; counter >= 0; counter--){
-                Sequence.push(counter);
-            }
-        }
+       for (let i=1; i<=MaxNum; i += steps){
+        Sequence.push(i)
+       }
     }
 
-
+        //for (i=MaxNum; i>=ans; steps--){;
+        
+            //for(counter = Sequence.length - 1; counter >= 0; counter--){
+                //Sequence.push(counter);
+            //}
+        //}
   
 
 
@@ -81,12 +83,13 @@ function generateSequence() {
 
     // TODO: Calculate sum of sequence
     let sl = Sequence.length   
-    for (i=Sequence[0]; i<Sequence.length; i++){
+    sum = 0; //Reset sum before calculation
+    for (i=0; i<Sequence.length; i++){
         sum += Sequence[i];
     }
 
     // TODO: Display sequence, count of numbers, and sum
-    document.getElementById('sequenceDisplay').innerHTML = Sequence.toString();
+    document.getElementById('sequenceDisplay').innerHTML = Sequence.join(', ');
     document.getElementById('count').innerHTML = sl.toString
     document.getElementById('sum').innerHTML = sum.toString
 
