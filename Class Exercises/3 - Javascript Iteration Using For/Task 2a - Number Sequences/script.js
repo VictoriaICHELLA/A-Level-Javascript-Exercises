@@ -18,12 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function generateSequence() {
 
     // TODO: Get the maximum number and sequence type from inputs
-    let MaxNum = parseFloat(document.getElementById('maxNumber').value)
-    let seqtype = document.getElementById('sequenceType').value
-    let steps = parseFloat(stepInput.value)
+    let MaxNum = parseFloat(document.getElementById('maxNumber').value);
+    let seqtype = document.getElementById('sequenceType').value;
+    let steps = parseFloat(document.getElementById('stepValue').value);
     let ans = 0
     let counter = 0 
 
+    // TODO: Validate input values
+    // Check if values are valid numbers and in correct range
+   
     // TODO: Initialize array to store sequence
     const Sequence = [];
     let sum = 0
@@ -51,7 +54,11 @@ function generateSequence() {
 
     // steps: Use a for loop with custom step value
     if (seqtype === 'steps'){
-       for (let i=1; i<=MaxNum; i += steps){
+         if(isNaN(MaxNum) || isNaN(steps)){
+            document.getElementById('count').innerHTML = "Invalid"
+            return;
+        }
+       for (let i=0; i<=MaxNum; i += steps){
         Sequence.push(i)
        }
     }
@@ -82,15 +89,15 @@ function generateSequence() {
 
 
     // TODO: Calculate sum of sequence
-    let sl = Sequence.length   
+    let sl = Sequence.length;
     sum = 0; //Reset sum before calculation
-    for (i=0; i<Sequence.length; i++){
+    for (let i=0; i<Sequence.length; i++){
         sum += Sequence[i];
     }
 
     // TODO: Display sequence, count of numbers, and sum
     document.getElementById('sequenceDisplay').innerHTML = Sequence.join(', ');
-    document.getElementById('count').innerHTML = sl.toString
-    document.getElementById('sum').innerHTML = sum.toString
+    document.getElementById('count').innerHTML = sl.toString();
+    document.getElementById('sum').innerHTML = sum.toString();
 
 }

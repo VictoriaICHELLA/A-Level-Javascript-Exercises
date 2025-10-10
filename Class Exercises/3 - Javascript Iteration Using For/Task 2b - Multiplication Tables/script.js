@@ -21,7 +21,8 @@ function generateTables() {
     
     // TODO: Create outer loop to generate multiple tables
     // This loop should run numTables times
-    
+    for (i=startNum; i>=endNum; i++){
+        //code goes here  
         // TODO: Create a new table div for each multiplication table
         
         // TODO: Create inner loop for multiplication facts
@@ -35,10 +36,13 @@ function generateTables() {
             
             // TODO: Increment total calculations
     
+    }  
     // TODO: Display total calculations in stats div
+    
 }
 
 // Initialize the page with a default table
 window.onload = function() {
     generateTables();
 };
+
