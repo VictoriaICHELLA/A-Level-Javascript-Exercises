@@ -1,39 +1,44 @@
 // TODO: Write the function to generate the sequence
 function generateSequence() {
     // Get input values
-    const start = parseInt(document.getElementById('start').value);
-    const end = parseInt(document.getElementById('end').value);
-    const step = parseInt(document.getElementById('step').value);
-    
+    const startn = parseInt(document.getElementById('start').value);
+    const endn = parseInt(document.getElementById('end').value);
+    const stepn = parseInt(document.getElementById('step').value);
+
     // Get output element
     const output = document.getElementById('sequenceOutput');
-    
-    // TODO: Validate inputs
-    // Check if values are valid numbers
 
-    if (isNaN(start) || isNaN(end) || isNaN(step)) {
-        output.innerHTML = "Check numbers are valid"
+    // TODO: Validate inputs
+    if (isNaN(startn) || isNaN(endn) || isNaN(stepn)) {
+        output.innerHTML = 'Invalid Number';
+        return;
+    }
+    if (stepn <= 0) {
+        output.innerHTML = 'Step must be positive.';
+        return;
+    }
+    if (endn <= startn) {
+        output.innerHTML = 'End must be greater than start.';
+        return;
     }
 
-    // Check if step is positive
-    // Check if end is greater than start
-    
     // TODO: Create array to store sequence
     let sequence = [];
-    
+
     // TODO: Use for loop with step to generate sequence
     // Remember to use the step in the for loop increment
-    for (i = start; i <= end; i += step) {
-        sequence.push(i + "=>");
+    for (let i = startn; i <= endn; i += stepn) {
+        sequence.push(i);
     }
 
-    output.innerHTML = sequence;
-    
     // TODO: Display the sequence
     // Join the numbers with arrows between them
+    output.innerHTML = sequence.join(' → ');
 }
 
 // Initialize the page
 window.onload = function() {
-    //generateSequence();
+    generateSequence();
 };
+
+
