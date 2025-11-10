@@ -82,12 +82,12 @@ document.getElementById("btnPush").onclick = function() {
 
 // --- Pop button handler ---
 document.getElementById("btnPop").onclick = function() {
-  var popped = pop();
+  var poppedValue = pop();
   updateOutput();
-  if (popped === -1) {
+  if (poppedValue === -1) {
     document.getElementById("output").innerText += "\nStack is empty. Cannot pop.";
   } else {
-    document.getElementById("output").innerText += "\nPopped: " + popped;
+    document.getElementById("output").innerText += "\nPopped: " + poppedValue;
   }
 };
 

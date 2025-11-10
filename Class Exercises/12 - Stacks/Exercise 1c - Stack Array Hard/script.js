@@ -10,12 +10,12 @@ let top = -1; // Index of the top element
 // --- Push operation ---
 function push(value) {
   // TODO: Fill in all the blanks to write the push algorithm
-  if (___________) {
-    return ___________;
+  if (top >= STACK_LIMIT) {
+    return -1;
   } else {
-    ___________;
-    ___________;
-    return ___________;
+    top = top + 1;
+    stack[top] = value;
+    return top;
   }
 }
 
